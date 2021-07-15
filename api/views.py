@@ -19,7 +19,7 @@ def apiOverview(request):
 		'Create':'/task-create/',
 		'Update':'/task-update/<str:pk>/',
 		'Delete':'/task-delete/<str:pk>/',
-		'dictapi':'/dictapi/word'
+		# 'dictapi':'/dictapi/word'
 		}
 
 	return Response(api_urls)
@@ -64,14 +64,14 @@ def taskDelete(request, pk):
 
 	return Response('Item succsesfully delete!')
 
-@api_view(['GET','POST'])
-def owldict(request):
-    search_result = {}
-    if 'word' in request.GET:
-        form = DictionaryForm(request.GET)
-        if form.is_valid():
-            search_result = form.search()
-    else:
-        form = DictionaryForm()
-    return Response(request,'index.html', {'form': form, 'search_result': search_result})
+# @api_view(['GET','POST'])
+# def owldict(request):
+#     search_result = {}
+#     if 'word' in request.GET:
+#         form = DictionaryForm(request.GET)
+#         if form.is_valid():
+#             search_result = form.search()
+#     else:
+#         form = DictionaryForm()
+#     return Response(request,'index.html', {'form': form, 'search_result': search_result})
 
